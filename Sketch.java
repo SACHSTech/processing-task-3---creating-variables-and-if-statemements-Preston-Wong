@@ -5,12 +5,11 @@ public class Sketch extends PApplet {
 	
   // randomizers
   Random myRandom = new Random();
-  int intRandomWidth = myRandom.nextInt((1000-400) + 1) + 400;
-  int intRandomHeight = myRandom.nextInt((1000-400) + 1) + 400;
-  int intRandomX = myRandom.nextInt((500-20) + 1) + 20;
-  int intRandomY = myRandom.nextInt((500-20) + 1) + 20;
-  int intRandomColour = myRandom.nextInt((500-20) + 1) + 20;
-  int intRandomSize = myRandom.nextInt((500-20) + 1) + 20;
+  int intRandomWidth = myRandom.nextInt((800-400) + 1) + 400;
+  int intRandomHeight = myRandom.nextInt((800-400) + 1) + 400;
+  int intRandomX = myRandom.nextInt((800-20) + 1) + 20;
+  int intRandomY = myRandom.nextInt((800-20) + 1) + 20;
+  int intRandomColour = myRandom.nextInt((255-20) + 1) + 20;
   
   public void settings() {
 	// size of the canvas
@@ -21,10 +20,10 @@ public class Sketch extends PApplet {
   public void setup() {
 
     // changes background colour based on the randomizer values 
-    if (intRandomX <= 100 && intRandomY <= 100) { 
-      background(0, 0, 255);
+    if (intRandomX <= 200 && intRandomY <= 200) { 
+      background(139,0,0);
     }
-    else if ((intRandomX > 100 && intRandomX <= 300) && (intRandomY > 100 && intRandomY <=300 )) {
+    else if ((intRandomX > 200 && intRandomX <= 400) && (intRandomY > 200 && intRandomY <= 400 )) {
       background(0,0,128);
     }
     else {
@@ -35,22 +34,37 @@ public class Sketch extends PApplet {
 
   public void draw() {
     // variables for the date 
-    int day = day();
-    int month = month();
-    int year = year();
+    int hour = hour();
+    int minute = minute();
+  
+	  // Body of the house
+    fill(intRandomColour + 60,intRandomColour + 62,intRandomColour + 72);
+    rect((float) (intRandomX/8), (float) (intRandomY/2),(float) (intRandomX/2), (float) (intRandomY/2.1));
 
-    // draws the circle 
-    fill(intRandomColour + 100,intRandomColour + 100,intRandomColour * 0);
-    ellipse(intRandomX,intRandomY,intRandomSize / 2,intRandomSize / 2);
-    
+    // Roof of the house
+    fill(210,100,75);
+    triangle((float) (intRandomX/8), (float) (intRandomY/2), (float) (intRandomX/2.66), (float) (intRandomY/4), (float) (intRandomX/1.6), (float) (intRandomY/2));
+
+    // Window
+    fill(255);
+    ellipse((float) (intRandomX/2.667),(float) (intRandomY/2.58), (float) (intRandomX/8), (float) (intRandomY/8));
+    line((float) (intRandomX/2.285), (float) (intRandomY/2.58), (float) (intRandomX/3.2),(float) (intRandomY/2.58));
+    stroke(0);
+    line ((float) (intRandomX/2.667), (float) (intRandomY/2.22), (float) (intRandomX/2.667), (float) (intRandomY/3.076));
+    stroke(0);
+
+    // Door and door handle
+    fill(intRandomColour + 150,intRandomColour + 75,intRandomColour * 0);
+    rect((float) (intRandomX/3.8), (float) (intRandomY/1.509), (float) (intRandomX/4.44), (float) (intRandomY/3.2));
+    fill(0);
+    ellipse((float) (intRandomX/2.19), (float) (intRandomY/1.2), (float) (intRandomX/40), (float) (intRandomY/40));  
+
     // displays the date when the program was runned
     fill(255,255,255);
-    String s = String.valueOf(day);
+    String s = String.valueOf(hour);
     text(s, 10, 28);
-    s = String.valueOf(month);
+    s = String.valueOf(minute);
     text(s, 30, 28); 
-    s = String.valueOf(year);
-    text(s, 50, 28);
   }
   
  
