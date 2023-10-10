@@ -5,23 +5,26 @@ public class Sketch extends PApplet {
 	
   // randomizers
   Random myRandom = new Random();
+  int intRandomWidth = myRandom.nextInt((1000-400) + 1) + 400;
+  int intRandomHeight = myRandom.nextInt((1000-400) + 1) + 400;
   int intRandomX = myRandom.nextInt((500-20) + 1) + 20;
   int intRandomY = myRandom.nextInt((500-20) + 1) + 20;
-  int intRandomZ = myRandom.nextInt((500-20) + 1) + 20;
+  int intRandomColour = myRandom.nextInt((500-20) + 1) + 20;
+  int intRandomSize = myRandom.nextInt((500-20) + 1) + 20;
   
   public void settings() {
-	// put your size call here
-    size(400, 400);
+	// size of the canvas
+    size(intRandomWidth,intRandomHeight);
      
   }
 
   public void setup() {
 
     // changes background colour based on the randomizer values 
-    if (intRandomZ <= 100) { 
+    if (intRandomX <= 100 && intRandomY <= 100) { 
       background(0, 0, 255);
     }
-    else if ((intRandomZ > 100) && (intRandomZ <= 300)) {
+    else if ((intRandomX > 100 && intRandomX <= 300) && (intRandomY > 100 && intRandomY <=300 )) {
       background(0,0,128);
     }
     else {
@@ -37,17 +40,17 @@ public class Sketch extends PApplet {
     int year = year();
 
     // draws the circle 
-    fill(intRandomZ + 100,intRandomZ + 100,intRandomZ * 0);
-    ellipse(intRandomX,intRandomY,intRandomZ / 2,intRandomZ / 2);
+    fill(intRandomColour + 100,intRandomColour + 100,intRandomColour * 0);
+    ellipse(intRandomX,intRandomY,intRandomSize / 2,intRandomSize / 2);
     
     // displays the date when the program was runned
     fill(255,255,255);
     String s = String.valueOf(day);
     text(s, 10, 28);
     s = String.valueOf(month);
-    text(s, 10, 56); 
+    text(s, 30, 28); 
     s = String.valueOf(year);
-    text(s, 10, 84);
+    text(s, 50, 28);
   }
   
  
