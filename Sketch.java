@@ -20,10 +20,10 @@ public class Sketch extends PApplet {
   public void setup() {
 
     // changes background colour based on the randomizer values 
-    if (intRandomX <= 200 && intRandomY <= 200) { 
+    if (intRandomX <= 400 && intRandomY <= 400) { 
       background(139,0,0);
     }
-    else if ((intRandomX > 200 && intRandomX <= 400) && (intRandomY > 200 && intRandomY <= 400 )) {
+    else if ((intRandomX > 400 && intRandomX <= 800) && (intRandomY > 400 && intRandomY <= 800 )) {
       background(0,0,128);
     }
     else {
