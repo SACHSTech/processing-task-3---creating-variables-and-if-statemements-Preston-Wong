@@ -1,6 +1,13 @@
 import processing.core.PApplet;
 import java.util.Random;
 
+/**
+ * Randomly skethes out the houes and changes the backgroung base on the house
+ * @author Preston Wong 
+ *
+ */
+
+
 public class Sketch extends PApplet {
 	
   // randomizers
@@ -66,6 +73,6 @@ public class Sketch extends PApplet {
     s = String.valueOf(minute);
     text(s, 30, 28); 
   }
-  
+ 
  
 }
